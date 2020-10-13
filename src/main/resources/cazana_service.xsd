@@ -1,0 +1,64 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/IntegrationServiceLayer.Services.Entities.CazanaVehicleValuationLookup"
+           targetNamespace="http://schemas.datacontract.org/2004/07/IntegrationServiceLayer.Services.Entities.CazanaVehicleValuationLookup" elementFormDefault="qualified">
+
+    <xs:element name="VehicleValuationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="vrm" type="xs:int"/>
+                <xs:element name="apikey" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="VehicleValuationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cid" type="xs:int"/>
+                <xs:element name="make" type="xs:string"/>
+                <xs:element name="model" type="xs:string"/>
+                <xs:element name="ocn" type="xs:int"/>
+                <xs:element name="daysToSale" type="xs:int"/>
+                <xs:element name="Mileage" type="tns:Mileage"/>
+                <xs:element name="youngUsed" type="xs:int"/>
+                <xs:element name="Valuation" type="tns:Valuation"/>
+                <xs:element name="stockingDepreciation" type="xs:string"/>
+                <xs:element name="Confidence" type="tns:Confidence"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="Mileage">
+        <xs:sequence>
+            <xs:element name="mileage" type="xs:int"/>
+            <xs:element name="estimate" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Valuation">
+        <xs:sequence>
+            <xs:element name="retail" type="xs:int"/>
+            <xs:element name="trade" type="xs:int"/>
+            <xs:element name="supermarket" type="xs:int"/>
+            <xs:element name="independent" type="xs:int"/>
+            <xs:element name="franchise" type="xs:int"/>       
+            <xs:element name="GrossProfit" type="tns:GrossProfit"/>
+            <xs:element name="percentOfOcn" type="xs:double"/>            
+            <xs:element name="valuationDate" type="xs:string"/>    
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GrossProfit">
+        <xs:sequence>
+            <xs:element name="profit" type="xs:int"/>
+            <xs:element name="percentange" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Confidence">
+        <xs:sequence>
+            <xs:element name="marker" type="xs:string"/>
+            <xs:element name="lower" type="xs:int"/>
+            <xs:element name="upper" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>    
+</xs:schema>
